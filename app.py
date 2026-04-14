@@ -8,6 +8,7 @@ from fastapi import FastAPI, File, UploadFile, Form, Request
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from jinja2 import Environment, FileSystemLoader
 from dotenv import load_dotenv
 
 from groq import Groq
@@ -26,7 +27,14 @@ client = Groq(api_key=GROQ_API_KEY)
 # ── FastAPI app setup ──
 app = FastAPI(title="Bengali Q&A Generator")
 app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+
+# Fix for Python 3.14 + Jinja2 LRU cache incompatibility
+_jinja_env = Environment(
+    loader=FileSystemLoader("templates"),
+    autoescape=True,
+    cache_size=0,   # disable cache — avoids dict-as-key TypeError in Python 3.14
+)
+templates = Jinja2Templates(env=_jinja_env)
 
 os.makedirs("output", exist_ok=True)
 
@@ -93,7 +101,9 @@ def parse_qa_response(response_text: str) -> list:
 # ─────────────────────────────────────────────
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    template = _jinja_env.get_template("index.html")
+    content = template.render(request=request)
+    return HTMLResponse(content=content)
 
 
 @app.post("/generate")
