@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+groq
+python-dotenv
+trafilatura
+pytesseract
+pillow
+PyMuPDF
+Jinja2
+python-multipart
+lxml_html_clean
+pandas
