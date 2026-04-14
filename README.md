@@ -44,7 +44,7 @@ Visit **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
 
 ---
 
-## 🛠 Project Structure
+##  Project Structure
 
 - `app.py`: FastAPI server logic & API integrations.
 - `utils.py`: PDF processing, URL extraction, and text batching.
@@ -54,7 +54,7 @@ Visit **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
 
 ---
 
-## 💡 Tips for Best Results
+##  Tips for Best Results
 
 - **PDF Quality**: Digital PDFs extract much faster than scanned ones.
 - **URL Limit**: Works best with single articles from sites like Prothom Alo, Anandabazar, etc.
@@ -62,5 +62,4 @@ Visit **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
 
 ---
 
-## ⚖️ License
-MIT License. Free to use and modify for dataset creation projects.
+
