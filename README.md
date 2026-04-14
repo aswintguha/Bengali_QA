@@ -1,10 +1,10 @@
-# 🇧🇩 Bengali Q&A Dataset Generator
+# Bengali Q&A Dataset Generator
 
 A powerful, high-speed tool to automatically generate Bengali Question & Answer datasets from PDF documents or website URLs. Powered by **Groq + Llama 3.3 70B** for lightning-fast, high-quality Bengali language processing.
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### 1. Prerequisites
 Ensure you have Python 3.9+ installed and get a **free API Key** from [Groq Console](https://console.groq.com/keys).
@@ -33,7 +33,7 @@ Visit **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Double Source Support**: Process local PDF files or any Bengali news/article URL.
 - **Smart PDF Extraction**: Uses **PyMuPDF** for reliable text extraction from digital PDFs.
